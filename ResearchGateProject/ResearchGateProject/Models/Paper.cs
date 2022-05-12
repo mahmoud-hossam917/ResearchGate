@@ -12,6 +12,7 @@ namespace ResearchGateProject.Models
         public int ID { get; set; }
         public bool like { get; set; }
         public bool dislike { get; set; }
+        public string header { get; set; }
         public string content { get; set; }
         public DateTime Date { get; set; }
         public List<Comment> comments { get; set; }

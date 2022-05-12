@@ -7,21 +7,42 @@ using ResearchGateProject.Models;
 
 namespace ResearchGateProject.Controllers
 {
-    public class PaperController : Controller
+   
+    public class PaperController : Controller,Modify
     {
         Dbcontext DB = new Dbcontext();
+       
+        public List<Catagory> GetCatagories()
+        {
+            List<Catagory> catagories = new List<Catagory>();
+            catagories = (from data in DB.catagories
+                          select data).ToList();
+            return catagories;
+        }
         // GET: Paper
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult AddPaper(Paper paper, int userID, int catagoryID)
+        [HttpGet]
+        public ActionResult AddPaper()
         {
-            paper.AuthorID = userID;
-            paper.catagoryID = catagoryID;
+           
+            return View(GetCatagories());
+        }
+        [HttpPost]
+        public ActionResult AddPaper(Paper paper)
+        {
+            paper.Date = DateTime.UtcNow;
+            paper.AuthorID =(int) Session["ID"];
+         
+          
             DB.papers.Add(paper);
+         
             DB.SaveChanges();
-            return View();
+
+          
+            return View(GetCatagories());
         }
         public ActionResult DeletePaper(int paperID)
         {
@@ -47,6 +68,37 @@ namespace ResearchGateProject.Controllers
             DB.SaveChanges();
             return View();
         }
+        List<Comment> GetAllComments(int id)
+        {
+            List<Comment> comments = new List<Comment>();
+            comments = (from data in DB.comments
+                        where data.paperID == id
+                        select data).ToList();
+            return comments;
+        }
+        [HttpGet]
+        public ActionResult ViewPaper(Paper paper)
+        {
+            ViewBag.comments = GetAllComments(paper.ID);
+            return PartialView(paper);
+        }
+        public Paper GetPaper(int id)
+        {
+            Paper paper = new Paper();
+            paper = (from data in DB.papers
+                     where (data.ID == id)
+                     select data).FirstOrDefault();
+            return paper;
+        }
+     
 
+        public ActionResult Delete(int id)
+        {
+            Paper paper = new Paper();
+            paper = GetPaper(id);
+            DB.papers.Remove(paper);
+            DB.SaveChanges();
+            return View();
+        }
     }
 }

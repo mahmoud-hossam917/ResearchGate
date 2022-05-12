@@ -7,7 +7,7 @@ using ResearchGateProject.Models;
 
 namespace ResearchGateProject.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : Controller,Modify
     {
         // GET: Admin
         Dbcontext DB = new Dbcontext();
@@ -61,5 +61,14 @@ namespace ResearchGateProject.Controllers
             return View();
         }
 
+        public ActionResult Delete(int id)
+        {
+            User author = new User();
+            UserController userController = new UserController();
+            author = userController.GetUser(id);
+            DB.users.Remove(author);
+            DB.SaveChanges();
+            return View();
+        }
     }
 }

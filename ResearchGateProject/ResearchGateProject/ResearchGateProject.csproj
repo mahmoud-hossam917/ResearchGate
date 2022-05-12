@@ -141,6 +141,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CatagoryController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaperController.cs" />
@@ -156,13 +157,19 @@
     <Compile Include="Migrations\202204191000571_second.designer.cs">
       <DependentUpon>202204191000571_second.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205071925115_awais.cs" />
+    <Compile Include="Migrations\202205071925115_awais.designer.cs">
+      <DependentUpon>202205071925115_awais.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Catagory.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Dbcontext.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Modify.cs" />
     <Compile Include="Models\Paper.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,21 +178,37 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Designs\Addcatagory.css" />
+    <Content Include="Content\Designs\AddPaper.css" />
+    <Content Include="Content\Designs\Editprofile.css" />
+    <Content Include="Content\Designs\otherprofile.css" />
+    <Content Include="Content\Designs\Profile.css" />
     <Content Include="Content\Designs\Loginstyle.css" />
+    <Content Include="Content\Designs\search.css" />
     <Content Include="Content\Designs\signupstyle.css" />
     <Content Include="Content\Designs\startpagestyle.css" />
+    <Content Include="Content\Designs\viewhome.css" />
+    <Content Include="Content\Designs\Viewpaper.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\book.png" />
+    <Content Include="Images\brain.png" />
     <Content Include="Images\center-update.png" />
+    <Content Include="Images\chemistry.png" />
+    <Content Include="Images\chemistryy.png" />
+    <Content Include="Images\earth.png" />
     <Content Include="Images\footer.png" />
+    <Content Include="Images\icon.png" />
     <Content Include="Images\Landing_img.jpg" />
     <Content Include="Images\left-update.png" />
     <Content Include="Images\Login.png" />
     <Content Include="Images\Mobile signup.png" />
     <Content Include="Images\Right-update.png" />
+    <Content Include="Images\Rightarrow.png" />
     <Content Include="Images\search-img.png" />
+    <Content Include="Images\search.png" />
     <Content Include="Images\Signup3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -217,13 +240,20 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Shared\_Layoutsignup.cshtml" />
+    <Content Include="Views\User\EditProfile.cshtml" />
+    <Content Include="Views\Catagory\AddCatagory.cshtml" />
+    <Content Include="Views\Paper\AddPaper.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\ViewProfile.cshtml" />
+    <Content Include="Views\Paper\ViewPaper.cshtml" />
+    <Content Include="Views\Home\ViewHome.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\OtherProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Comment\" />
-    <Folder Include="Views\Paper\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -244,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204191000571_second.resx">
       <DependentUpon>202204191000571_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205071925115_awais.resx">
+      <DependentUpon>202205071925115_awais.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

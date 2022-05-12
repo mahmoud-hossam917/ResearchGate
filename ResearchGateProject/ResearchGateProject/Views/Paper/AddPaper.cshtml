@@ -1,0 +1,37 @@
+﻿@model List<ResearchGateProject.Models.Catagory>
+@using (Html.BeginForm("AddPaper", "Paper", FormMethod.Post))
+{
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title> form </title>
+
+        <link href="~/Content/Designs/AddPaper.css" rel="stylesheet" />
+    </head>
+    <body>
+        <form name="form">
+            <fieldset>
+                <legend>Add paper</legend>
+                <fieldset>
+                    <legend>paper information</legend><br>
+                  
+                    <input name="header" type="text" placeholder="Entert header"><br>
+                    <select name="catagoryID" size="1">
+                        <optgroup label=" catagory">
+                            @foreach (var item in Model)
+                            {
+                                <option value="@item.ID" >@item.type</option>
+                            }
+                        </optgroup>
+                    </select><br>
+                    <textarea name="content" rows="30" cols="100" readonl placeholder="enter research content"></textarea> <br>
+                    <input type="submit" value="add-paper">
+                </fieldset>
+            </fieldset>
+        </form>
+    </body>
+</html>
+
+
+
+}

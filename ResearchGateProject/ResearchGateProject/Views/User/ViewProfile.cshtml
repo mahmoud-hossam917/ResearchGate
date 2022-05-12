@@ -1,0 +1,88 @@
+﻿@model List<ResearchGateProject.Models.Paper>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profile</title>
+    <!-- Main stylesheet -->
+    <link href="~/Content/Designs/Profile.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- 0 landing -->
+    <div class="landing">
+        <div class="container">
+            <div class="header">
+                <div class="head">
+                    <img src="~/Images/icon.png" />
+                    <h2>Re<span style="color:#01BC9A">search</span>Gate</h2>
+                </div>
+                <ul>
+                    <li><a style="color:#01BC9A;" href="@Url.Action("ViewHome","Home")"><h3>Home</h3></a></li>
+                    <li><a href="#reasearch"><h3>My Research</h3></a></li>
+                    <li><a href="@Url.Action("EditProfile","User")"><h3>Edite profile</h3></a></li>
+                    <li><a href="@Url.Action("AddCatagory","Catagory")"><h3>Add category</h3></a></li>
+                    <li><a href="@Url.Action("Logout","User")"><h3>Log out</h3></a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="prof-img">
+                    <div class="cardProfile">
+                        <img src="../images/profilePhoto.jpg" class="profilePhoto" />
+                        <h1>@Session["Name"]</h1>
+                        <p class="department">@Session["department"]</p>
+                        <p class="university">@Session["university"]</p>
+                        <p><button class="btt">@Session["email"]</button></p>
+                    </div>
+                </div>
+                <div class="line">.</div>
+                <div class="text">
+                    <h2>
+                        Let's Share Your Experience With Me Now! check my work anh join to me
+                    </h2>
+                    <p>Career Success of Women in Academic Psychiatry: Their Journey and Advice</p>
+                    <div class="buttons">
+                        <button class="sp-bt"><a class="sp-ah">My Work</a></button>
+                        <button></button><a style="color:#01BC9A;" href="#">contact with me</a></button>
+                    </div>
+                    <h6>@Session["email"]</h6>
+                    <div class="contact">
+                        <h4>@Session["phoneNumber"]</h4>
+                        <span>|</span>
+                        <h4 class="adr">@Session["adderss"]</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 1 landing -->
+    <section class="blog-me pt-100 pb-100" id="reasearch">
+        <div class="container">
+            <div class="section-title mb-100">
+                <h4>Author's recent publications</h4>
+            </div>
+            <!-- Single paprer #1 -->
+            @foreach(var item in Model)
+            {
+                <div class="single-reasearch">
+                    <div class="reasearch-content">
+                        <div class="reasearch-title">
+                            <h1><a href="#">@item.header</a></h1>
+                        </div>
+                        <fieldset>
+                            <legend>@item.catagory</legend>
+                            <textarea rows="6" cols="60" readonl> @item.content</textarea>
+                        </fieldset>
+                        <a href="@Url.Action("ViewPaper","Paper",@item)" class="box_btn">read more</a>
+                    </div>
+                </div>
+            }
+
+            <div class="add-paper"><a href="@Url.Action("AddPaper","Paper")">add paper</a></div>
+
+        </div>
+    </section>
+</body>
+</html>
+

@@ -15,15 +15,23 @@ namespace ResearchGateProject.Controllers
         {
             return View();
         }
-        public ActionResult AddComment(int paperID, string content)
+        public List<Paper> GetAllPapers()
         {
-            Comment comment = new Comment();
-            comment.paperID = paperID;
-            comment.content = content;
+            int id = (int)Session["ID"];
+            List<Paper> papers = new List<Paper>();
+            papers = (from data in DB.papers
+                      where (data.AuthorID == id)
+                      select data).ToList();
+            return papers;
+        }
+        [HttpPost]
+        public ActionResult AddComment(Comment comment)
+        {
+           
             DB.comments.Add(comment);
             DB.SaveChanges();
 
-            return View();
+            return View("../User/ViewProfile",GetAllPapers());
         }
     }
 }
