@@ -7,16 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>profile</title>
     <!-- Main stylesheet -->
-    <link href="~/Content/Designs/Profile.css" rel="stylesheet" />
+    <link href="~/Content/Designs/profile.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="profile.css">
+    <style>
+        body {
+            background-color: #222222;
+        }
+    </style>
 </head>
 <body>
     <!-- 0 landing -->
-    <div class="landing">
-        <div class="container">
+    <div style="background-color:#222222;" class="landing">
+        <div style="background-color:#222222;" class="container">
             <div class="header">
                 <div class="head">
                     <img src="~/Images/icon.png" />
                     <h2>Re<span style="color:#01BC9A">search</span>Gate</h2>
+                    <button style="border:none; display: block; margin:0 0 0 10px;padding:5px;">
+                        <a class="a-delete" style="  color:black; background-color:#00BB98; width:100px; margin:10px 0 0 0;padding:5px; font-family:serifl;
+                        font-size:18px; font-weightbold;" href="@Url.Action("AboutDelet","Admin",new { state =2, id=Session["ID"] })">Delete Account</a>
+                    </button>
+
                 </div>
                 <ul>
                     <li><a style="color:#01BC9A;" href="@Url.Action("ViewHome","Home")"><h3>Home</h3></a></li>
@@ -30,10 +41,10 @@
                 <div class="prof-img">
                     <div class="cardProfile">
                         <img src="../images/profilePhoto.jpg" class="profilePhoto" />
-                        <h1>@Session["Name"]</h1>
-                        <p class="department">@Session["department"]</p>
-                        <p class="university">@Session["university"]</p>
-                        <p><button class="btt">@Session["email"]</button></p>
+                        <h1 style="color:#00BB99;">@Session["Name"]</h1>
+                        <p style="color:#00BB99;" class="department">@Session["department"]</p>
+                        <p style="color:#00BB99;" class="university">@Session["university"]</p>
+                        <p style="color:#00BB99;"><button class="btt">@Session["email"]</button></p>
                     </div>
                 </div>
                 <div class="line">.</div>
@@ -44,7 +55,7 @@
                     <p>Career Success of Women in Academic Psychiatry: Their Journey and Advice</p>
                     <div class="buttons">
                         <button class="sp-bt"><a class="sp-ah">My Work</a></button>
-                        <button></button><a style="color:#01BC9A;" href="#">contact with me</a></button>
+                        <button><a style="color:#01BC9A;" href="#">contact with me</a></button>
                     </div>
                     <h6>@Session["email"]</h6>
                     <div class="contact">
@@ -57,30 +68,32 @@
         </div>
     </div>
     <!-- 1 landing -->
-    <section class="blog-me pt-100 pb-100" id="reasearch">
+    <section style="background-color:#222222;" class="blog-me pt-100 pb-100" id="reasearch">
         <div class="container">
             <div class="section-title mb-100">
-                <h4>Author's recent publications</h4>
+                <h4 style="color:#00BB99;">Author's recent publications</h4>
             </div>
+            <div class="add-paper"><a style="color:white ; background-color: black; padding:4px; border-color:white ;" href="@Url.Action("AddPaper","Paper")">add paper</a></div>
             <!-- Single paprer #1 -->
-            @foreach(var item in Model)
+           @foreach (var item in Model)
             {
-                <div class="single-reasearch">
+                <div style="margin:9px;" class="single-reasearch">
                     <div class="reasearch-content">
                         <div class="reasearch-title">
-                            <h1><a href="#">@item.header</a></h1>
+                            <h1 style="color:#FF7700;" href="">@item.header</h1>
                         </div>
-                        <fieldset>
+                        <fieldset style="border:2px solid white ;">
                             <legend>@item.catagory</legend>
-                            <textarea rows="6" cols="60" readonl> @item.content</textarea>
+                            <textarea style="background-color:white;" rows="6" cols="60">@item.content</textarea>
                         </fieldset>
-                        <a href="@Url.Action("ViewPaper","Paper",@item)" class="box_btn">read more</a>
+                        <a href="@Url.Action("ViewPaper","Paper",item)" class="box_btn">read more</a>
+                        <button style="border:none; display: block;">
+                            <a style=" display:block;  color:white; background-color:red; width:100px; margin:10px 0 0 0;padding:5px; font-family:serifl;
+                        font-size:16px; font-weightbold;" href="@Url.Action("AboutDelet","Admin",new { state =1, id=item.ID })">Delete paper</a>
+                        </button>
                     </div>
                 </div>
             }
-
-            <div class="add-paper"><a href="@Url.Action("AddPaper","Paper")">add paper</a></div>
-
         </div>
     </section>
 </body>

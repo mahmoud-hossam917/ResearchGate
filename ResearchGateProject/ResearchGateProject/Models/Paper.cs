@@ -19,5 +19,7 @@ namespace ResearchGateProject.Models
         public string catagory { get; set; }
         public int AuthorID { get; set; }
         public int catagoryID { get; set; }
+
+
     }
 }

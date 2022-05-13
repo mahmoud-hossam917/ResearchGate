@@ -19,10 +19,17 @@ namespace ResearchGateProject.Controllers
                           select data).ToList();
             return catagories;
         }
+        
         // GET: Paper
         public ActionResult Index()
         {
             return View();
+        }
+        public string GetCatagoryType(int id)
+        {
+            Catagory catagory = new Catagory();
+            catagory = DB.catagories.Find(id);
+            return catagory.type;
         }
         [HttpGet]
         public ActionResult AddPaper()
@@ -35,31 +42,20 @@ namespace ResearchGateProject.Controllers
         {
             paper.Date = DateTime.UtcNow;
             paper.AuthorID =(int) Session["ID"];
-         
+            paper.catagory = GetCatagoryType(paper.catagoryID);
           
             DB.papers.Add(paper);
          
             DB.SaveChanges();
 
-          
-            return View(GetCatagories());
+            UserController userController = new UserController();
+            return PartialView("../User/ViewProfile", userController.GetAllPapers((int)Session["ID"]));
         }
-        public ActionResult DeletePaper(int paperID)
-        {
-            Paper paper = new Paper();
-            paper = (from data in DB.papers
-                     where (data.ID == paperID)
-                     select data).FirstOrDefault();
-            DB.papers.Remove(paper);
-            DB.SaveChanges();
-            return View();
-        }
+       
         public ActionResult EditPaper(Paper paper)
         {
             Paper currentPaper = new Paper();
-            currentPaper = (from data in DB.papers
-                            where paper.ID == data.ID
-                            select data).FirstOrDefault();
+            currentPaper = GetPaper(paper.ID);
             currentPaper.catagory = paper.catagory;
             currentPaper.content = paper.content;
             currentPaper.Date = paper.Date;
@@ -91,14 +87,14 @@ namespace ResearchGateProject.Controllers
             return paper;
         }
      
-
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public void Delete(int id)
         {
             Paper paper = new Paper();
             paper = GetPaper(id);
             DB.papers.Remove(paper);
             DB.SaveChanges();
-            return View();
+           
         }
     }
 }

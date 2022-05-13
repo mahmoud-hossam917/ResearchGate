@@ -168,6 +168,7 @@
     <Compile Include="Models\Dbcontext.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Modify.cs" />
+    <Compile Include="Models\ModifyModel.cs" />
     <Compile Include="Models\Paper.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\User.cs" />
@@ -178,17 +179,17 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Designs\Addcatagory.css" />
+    <Content Include="Content\Designs\addcategory.css" />
     <Content Include="Content\Designs\AddPaper.css" />
     <Content Include="Content\Designs\Editprofile.css" />
+    <Content Include="Content\Designs\home.css" />
     <Content Include="Content\Designs\otherprofile.css" />
-    <Content Include="Content\Designs\Profile.css" />
-    <Content Include="Content\Designs\Loginstyle.css" />
+    <Content Include="Content\Designs\profile.css" />
     <Content Include="Content\Designs\search.css" />
+    <Content Include="Content\Designs\signin.css" />
     <Content Include="Content\Designs\signupstyle.css" />
     <Content Include="Content\Designs\startpagestyle.css" />
-    <Content Include="Content\Designs\viewhome.css" />
-    <Content Include="Content\Designs\Viewpaper.css" />
+    <Content Include="Content\Designs\viewpaper.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -246,9 +247,9 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\ViewProfile.cshtml" />
     <Content Include="Views\Paper\ViewPaper.cshtml" />
-    <Content Include="Views\Home\ViewHome.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\OtherProfile.cshtml" />
+    <Content Include="Views\Home\ViewHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

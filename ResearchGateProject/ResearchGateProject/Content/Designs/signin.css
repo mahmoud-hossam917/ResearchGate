@@ -1,5 +1,4 @@
-﻿@import url('signupstyle.css');
-* {
+﻿* {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -17,9 +16,8 @@ body {
     font-family: Serif;
 }
 
-
 h2 {
-    color:green;
+    color: red;
 }
 
 .mob-img {
@@ -28,40 +26,51 @@ h2 {
 
 .flex {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-flow: row-reverse;
 }
 
-.Signup {
-    width: 700px;
-    margin: 16px auto;
+.login {
+    width: 400px;
+    margin: auto auto;
     font-size: 16px;
 }
 
-.Signup-header {
+.login-header {
     background: #091117;
-    padding: 20px;
+    padding: 16px;
     font-size: 1.4em;
     text-align: center;
     text-transform: uppercase;
     color: #FF1552;
     opacity: 0.8;
+    width: 500px;
+    height: 60px;
+    border: 3px solid #FE4974;
+    border-radius: 30px;
+    border-bottom: 1px solid transparent;
 }
 
-.Signup-container {
-    height: 100%;
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
     background: #091117;
     padding: 12px;
     opacity: 0.8;
+    width: 500px;
+    height: 300px;
+    border: 3px solid #B03399;
+    border-radius: 20px;
+    border-top: 1px solid transparent;
 }
 
-.Signup p {
+.login p {
     padding: 12px;
     display: inline-block;
 }
 
-.Signup input {
+.login input {
     box-sizing: border-box;
     width: 100%;
     border: 3px solid blue;
@@ -71,44 +80,40 @@ h2 {
     font-size: 10px;
 }
 
-    .Signup input[type="email"],
-    .Signup input[type="password"],
-    .Signup input[type="text"],
-    .Signup input[type="file"] {
+    .login input[type="password"],
+    .login input[type="text"] {
         background: #091117;
         text-align: center;
-        font-size: 20px;
+        font-size: 29px;
         transition: 0.5s;
         color: white;
+        width: 485px;
     }
 
-    .Signup input[type="file"] {
+    .login input[type="file"] {
         border-color: #33BE8F;
     }
 
-        .Signup input[type="email"]:focus,
-        .Signup input[type="password"]:focus,
-        .Signup input[type="text"]:focus,
-        .Signup input[type="file"]:focus {
-            border-color: red;
-            transform: scale(1.1);
-            color: white;
-        }
+    .login input[type="password"]:focus,
+    .login input[type="text"]:focus {
+        border-color: red;
+        transform: scale(1.1);
+        color: white;
+    }
 
-    .Signup input[type="submit"] {
+    .login input[type="submit"] {
         background: #D3164F;
         border-color: transparent;
         color: white;
-        width: 100px;
-        font-size: 16px;
+        font-size: 20px;
     }
 
-        .Signup input[type="submit"]:hover {
+        .login input[type="submit"]:hover {
             background: #B71383;
             color: black;
-            font-size: 17px;
+            font-size: 22px;
         }
 
-        .Signup input[type="submit"]:focus {
+        .login input[type="submit"]:focus {
             border-color: green;
         }

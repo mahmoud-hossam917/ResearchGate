@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
 namespace ResearchGateProject.Models
 {
-    public interface Modify
+    public class ModifyModel
     {
-        void Delete(int id);
+       
+        public Modify type ;
+        public int id ;
+      
     }
 }

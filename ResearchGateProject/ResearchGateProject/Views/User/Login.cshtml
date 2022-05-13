@@ -1,11 +1,11 @@
-﻿<link href="~/Content/Designs/Loginstyle.css" rel="stylesheet" />
-@using (Html.BeginForm("Login", "User", FormMethod.Post))
+﻿@using (Html.BeginForm("Login", "User", FormMethod.Post))
 {
     <!DOCTYPE html>
     <html>
     <head>
         <title>login</title>
-        <link rel="stylesheet" type="text/css" href="../css/login.css">
+        <link href="~/Content/Designs/signin.css" rel="stylesheet" />
+  
     </head>
     <body>
         <!-- page Content -->
@@ -14,7 +14,7 @@
             <img class="mob-img" src="../images/Login.png">
             <!--  form body   -->
             <div class="login">
-                <h1 class="login-header">Sign in</h1>
+                <h1 style="border:none;" class="login-header">Sign in</h1>
                 <!-- form action & method  -->
                 <form class="login-container" action="" method="post">
                     <!--  form inputs  -->
