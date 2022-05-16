@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ResearchGateProject.Models
 {
-    public interface Modify
+    interface Modify
     {
-        void Delete(int id);
+        System.Web.Mvc.ActionResult Delete(int id);
     }
 }

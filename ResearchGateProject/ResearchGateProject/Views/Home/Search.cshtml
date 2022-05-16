@@ -4,7 +4,6 @@
 <head>
     <title>results</title>
     <link href="~/Content/Designs/search.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="search.css">
 </head>
 <body>
     <div class="testimonials">
@@ -12,25 +11,24 @@
         <div class="container">
             @if (Model.FirstOrDefault() != null)
             {
-                foreach (var user in Model)
-                {
-                    <!-- start box -->
+                  foreach (var user in Model)
+                  {
+                        <!-- start box -->
                     <div class="ts-box">
+                        <p> I'm happy tp share mt research </p>
                         <div class="person-info">
-                            <a href="@Url.Action("OtherProfile","Home",new { id=user.ID})"><img src="../images/profil-pic.jpg"></a>
+                            <a href="@Url.Action("OtherProfile","Home",user)"><img src="../images/profil-pic.jpg"></a>
                             <h4>@user.Name</h4>
-                            <p>@user.university </p>
-                            <p>Department of @user.department</p>
-                            <p>ِ@user.email</p>
+                            <p>univirsty:@user.university </p>
+                            <p>ِemail: @user.email</p>
                         </div>
                     </div>
                     <!-- end box -->
 
-                }
-            }
-            @if (Model.FirstOrDefault() == null)
-            {
-                <h2>Not Found</h2>
+                  }
+           }
+            @if(Model.FirstOrDefault()==null){
+            <h2>Not Found</h2>
             }
 
         </div>

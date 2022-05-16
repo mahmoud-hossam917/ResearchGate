@@ -25,8 +25,7 @@ namespace ResearchGateProject.Controllers
         {
             DB.catagories.Add(catagory);
             DB.SaveChanges();
-            UserController userController = new UserController();
-            return PartialView("../User/ViewProfile", userController.GetAllPapers((int)Session["ID"]));
+            return RedirectToAction("AddCatagory");
         }
         public ActionResult DeleteCatagory(int catagoryID)
         {
