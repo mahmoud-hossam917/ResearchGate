@@ -7,7 +7,7 @@ using ResearchGateProject.Models;
 
 namespace ResearchGateProject.Controllers
 {
-    public class UserController : Controller
+    public class UserController : Controller,Modify
     {
         Dbcontext DB = new Dbcontext();
         // GET: User
@@ -119,7 +119,20 @@ namespace ResearchGateProject.Controllers
             Session.Clear();
             return View("Login");
         }
+        public User getUser(int id)
+        {
+            return DB.users.Single(o => o.ID == id);
+        }
+        [HttpDelete]
+        public void Delete(int id)
+        {
+           
+            var author =getUser(id);
+            DB.users.Remove(author);
+            DB.SaveChanges();
+           
+        }
 
-     
+
     }
 }

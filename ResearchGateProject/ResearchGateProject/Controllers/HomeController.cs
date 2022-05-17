@@ -27,14 +27,25 @@ namespace ResearchGateProject.Controllers
         {
             return PartialView("ViewHome",GetAllPapers((int)Session["ID"]));
         }
+        public void GetSpams(ref List<User>users)
+        {
+            List<User> spams = new List<User>();
+            foreach (var item in users)
+            {
+                if (item.ID == (int)Session["ID"]) spams.Add(item);
+            }
+            foreach (var item in spams) users.Remove(item);
+        }
         [HttpPost]
         public ActionResult Search(SearchModel search)
         {
             List<User> users = (from data in DB.users
                          where (data.university == search.need ||
-                         data.email == search.need || data.Name == search.need)
+                         data.email == search.need || data.Name == search.need )
                          select data).ToList();
-            return View(users);
+
+            GetSpams(ref users);
+             return View(users);
         }
         public Author PutUserIntoAuthor(User user)
         {
@@ -51,13 +62,20 @@ namespace ResearchGateProject.Controllers
             author.role = user.role;
             author.phoneNumber = user.phoneNumber;
             return author;
-        }
+
+
+       }
+       
+                  
         [HttpGet]
-        public ActionResult OtherProfile(User user)
+        public ActionResult OtherProfile(int id)
         {
+            User user = new User();
+            UserController userController = new UserController();
+            user = userController.GetUser(id);
             Author author = new Author();
             author = PutUserIntoAuthor(user);
-            UserController userController = new UserController();
+         
             author.papers = userController.GetAllPapers(user.ID);
           
             return View(author);

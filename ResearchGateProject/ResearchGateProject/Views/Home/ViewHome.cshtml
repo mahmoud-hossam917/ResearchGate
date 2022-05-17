@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <!-- Main stylesheet -->
-    <link href="~/Content/Designs/viewhome.css" rel="stylesheet" />
+    <link href="~/Content/Designs/home.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="home.css">
 </head>
 <body>
     <!-- 0 landing -->
@@ -22,15 +23,15 @@
                     <li>
                         @using (Html.BeginForm("Search", "Home", FormMethod.Post))
                         {
-                            <form >
-                                <button type="submit" style="color:#0DAE85; border-color:#0DAE85; margin-right:3px;">search</button>
-                                <input type="search" name="need" placeholder="search">
+                            <form>
+                                <button class="search-bt">search</button>
+                                <input class="searchh" type="search" name="need" placeholder="search">
                             </form>
                         }
 
                     </li>
-                    <li><a href="@Url.Action("EditProfile","User")"><h3>Edite profile</h3></a></li>
-                    <li><a href="@Url.Action("AddCatagory","Catagory")"><h3>Add category</h3></a></li>
+                    <li><a href="@Url.Action("ViewProfile","User")"><h3>profile</h3></a></li>
+                    <li><a href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="@Url.Action("Index", "User")"><h3>Log out</h3></a></li>
                 </ul>
             </div>
@@ -39,12 +40,13 @@
     </div>
     </div>
     <!-- 1 landing -->
-    <section class="blog-me pt-100 pb-100" id="reasearch">
-        <a href="" style=" position:absolute; left:0px;  " ><img width="100px" height="141px" src="../images/profil-pic.jpg" alt="" /></a>
-        <div class="container">
-            <!-- Single paprer #1 -->
-            @foreach (var item in Model)
-            {
+    @foreach (var item in Model)
+    {
+        <section class="blog-me pt-100 pb-100" id="reasearch">
+            <a href="@Url.Action("OtherProfile", "Home",new{ id=item.AuthorID})" style=" position:absolute; left:0px;  "><img width="100px" height="141px" src="../images/profil-pic.jpg" alt="" /></a>
+            <div class="container">
+                <!-- Single paprer #1 -->
+
                 <div class="single-reasearch">
                     <div class="reasearch-content">
                         <div class="reasearch-title">
@@ -54,13 +56,14 @@
                             <legend>@item.catagory</legend>
                             <textarea rows="6" cols="60" readonl> @item.content</textarea>
                         </fieldset>
-                        <a href="@Url.Action("ViewPaper","Paper",@item)" class="box_btn">read more</a>
+                        <a style="background-color:#865FC5; " href="@Url.Action("ViewPaper", "Paper", @item)" class="box_btn">read more</a>
                     </div>
                 </div>
-            }
-            <!-- end paper -->
-        </div>
-    </section>
-</body>
+
+                <!-- end paper -->
+            </div>
+        </section>
+    }
+    </body>
 </html>
 

@@ -257,7 +257,7 @@ button {
 
 .landing {
     padding-bottom: 20px;
-    background-color: #2E2D2E;
+    background-color: #4A2E5A;
 }
 
 .header {
@@ -305,7 +305,7 @@ a:hover {
 
 
 .papersec {
-    background-color: #555;
+    background-color: #4A2E5A;
 }
 
 .details {
@@ -319,46 +319,59 @@ a:hover {
 .paper {
     border: solid 2px #282923;
     padding: 6px;
-    background-color: #666;
+    background-color: #724876;
     flex-basis: 58%;
+    border: 2px solid black;
+    border-radius: 9px;
+    box-shadow: -12px 14px 19px #131214;
 }
 
-    .paper h1 {
-        color: red;
-    }
+}
 
-    .paper fieldset {
-        color: blue;
-        font-weight: 600;
-        background-color: #ddd;
-    }
+.paper h1 {
+    color: black;
+}
 
-    .paper legend {
-        font-size: 20px;
-    }
+.paper fieldset {
+    color: #fff;
+    font-weight: 600;
+    background-color: #56385E;
+    border: 2px solid black;
+    border-radius: 9px;
+}
 
-    .paper textarea {
-        background-color: red;
-    }
+.paper legend {
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 9px;
+}
 
-    .paper .info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: row;
-    }
+.paper textarea {
+    color: white;
+    background-color: #1A0924;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 9px;
+}
+
+.paper .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
 
 .info h2 {
-    color: orange;
+    color: #01BC9A;
 }
 
 .info p {
-    color: blue;
+    color: white;
     font-weight: 600;
 }
 
     .info p time {
-        color: #333;
+        color: black;
     }
 
 
@@ -386,18 +399,60 @@ a:hover {
 }
 
     .comments h3 {
-        background-color: #eee;
+        background-color: #983fcc;
         margin-top: 10px;
         min-width: 600px;
         min-height: 100px;
         text-align: center;
-        border: solid 2px #999;
+        border: solid 2px #fff;
         border-radius: 24px;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         padding: 5px;
     }
+
+    .comments .subscribe {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+        .comments .subscribe form {
+            width: 600px;
+            margin: 5px auto;
+            padding: 17px 20px;
+            background-color: #1A0924;
+            border-radius: 50px;
+            display: flex;
+            gap: 20px;
+        }
+
+            .comments .subscribe form input[type="text"] {
+                width: 500px;
+                border-radius: 50px;
+                border: none;
+                background-color: #56385E;
+                color: white;
+                font-weight: bold;
+                padding: 20px;
+            }
+
+            .comments .subscribe form input[type="submit"] {
+                border-radius: 50px;
+                border: none;
+                background-color: #5C3565;
+                color: white;
+                font-weight: bold;
+                padding: 20px;
+                cursor: pointer;
+                transition: 0.4s;
+            }
+
+                .comments .subscribe form input[type="submit"]:hover {
+                    background-color: white;
+                    color: #5C3565;
+                }
+
 
 .boxes {
     display: flex;
@@ -411,20 +466,22 @@ a:hover {
         box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
         border-radius: 6px;
         position: relative;
+        border-radius: 9px;
+        box-shadow: -12px 14px 19px #131214;
     }
 
-            .boxes .box a img {
-                position: absolute;
-                right: -10px;
-                top: -50px;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                border: 10px solid #555555;
-            }
+        .boxes .box a img {
+            position: absolute;
+            right: -10px;
+            top: -50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 10px solid #4A2E5A;
+        }
 
     .boxes .box {
-        margin: 0 0 30px;
+        margin: 0 0 30px 20px;
     }
 
         .boxes .box span {
@@ -435,7 +492,7 @@ a:hover {
 
         .boxes .box p {
             line-height: 1.5;
-            color: #777;
+            color: black;
             margin-top: 10px;
             margin-bottom: 0;
         }
@@ -443,41 +500,4 @@ a:hover {
 /* 1 details */
 
 
-.comments .subscribe {
-    width: 100%;
-    margin-top: 20px;
-}
 
-    .comments .subscribe form {
-        width: 600px;
-        margin: 5px auto;
-        padding: 17px 20px;
-        background-color: #555;
-        border-radius: 50px;
-        display: flex;
-        gap: 20px;
-    }
-
-        .comments .subscribe form input[type="text"] {
-            width: 500px;
-            border-radius: 50px;
-            border: none;
-            background-color: #222;
-            color: white;
-            font-weight: bold;
-            padding: 20px;
-        }
-
-        .comments .subscribe form input[type="submit"] {
-            border-radius: 50px;
-            border: none;
-            background-color: #999;
-            color: white;
-            font-weight: bold;
-            padding: 20px;
-            cursor: pointer;
-        }
-
-            .comments .subscribe form input[type="submit"]:hover {
-                background-color: #000;
-            }

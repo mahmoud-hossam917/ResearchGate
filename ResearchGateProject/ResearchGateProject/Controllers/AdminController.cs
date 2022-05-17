@@ -7,7 +7,7 @@ using ResearchGateProject.Models;
 
 namespace ResearchGateProject.Controllers
 {
-    public class AdminController : Controller,Modify
+    public class AdminController : Controller
     {
         // GET: Admin
         Dbcontext DB = new Dbcontext();
@@ -20,26 +20,18 @@ namespace ResearchGateProject.Controllers
 
             return View();
         }
-        public ActionResult DeleteAccount(int userID)
+        public ActionResult AboutDelet(int state , int id)
         {
-            User author = new User();
-            author = (from data in DB.users
-                      where data.ID == userID
-                      select data).FirstOrDefault();
-            DB.users.Remove(author);
-            DB.SaveChanges();
-            return View();
+            Modify type;
+            if (state == 1) type = new PaperController();
+            else type = new UserController();
+            Delete(type, id);
+            UserController userController = new UserController();
+            if (state == 1)
+                return PartialView("../User/ViewProfile", userController.GetAllPapers((int)Session["ID"]));
+            return View("../User/Login");
         }
-        public ActionResult DeletePaper(int paperID)
-        {
-            Paper paper = new Paper();
-            paper = (from data in DB.papers
-                     where data.ID == paperID
-                     select data).FirstOrDefault();
-            DB.papers.Remove(paper);
-            DB.SaveChanges();
-            return View();
-        }
+      
         public ActionResult DeleteReactLike(int paperID)
         {
             Paper paper = new Paper();
@@ -60,15 +52,14 @@ namespace ResearchGateProject.Controllers
             DB.SaveChanges();
             return View();
         }
-
-        public ActionResult Delete(int id)
+        [HttpGet]
+       public void Delete(Modify type , int id)
         {
-            User author = new User();
-            UserController userController = new UserController();
-            author = userController.GetUser(id);
-            DB.users.Remove(author);
-            DB.SaveChanges();
-            return View();
+           
+            type.Delete(id);
+           
+  
         }
+     
     }
 }
